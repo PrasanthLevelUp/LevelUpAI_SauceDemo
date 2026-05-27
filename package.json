@@ -1,0 +1,29 @@
+{
+  "name": "playwright-saucedemo-framework",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "typescript": "^5.9.3"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrasanthLevelUp/LevelUpAI_SauceDemo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrasanthLevelUp/LevelUpAI_SauceDemo/issues"
+  },
+  "homepage": "https://github.com/PrasanthLevelUp/LevelUpAI_SauceDemo#readme",
+  "description": ""
+}
