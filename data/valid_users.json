@@ -6,6 +6,12 @@
     }
   },
   {
+    "key": "locked_user",
+    "value": {
+      "username": "locked_out_user"
+    }
+  },
+  {
     "key": "problem_user",
     "value": {
       "username": "problem_user"

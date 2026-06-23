@@ -1,4 +1,7 @@
-    export function getRecord<T>(
+import users from '../data/valid_users.json';
+import { env } from './env';
+
+export function getRecord<T>(
   dataset: { key: string; value: T }[],
   key: string
 ): T {
@@ -14,4 +17,21 @@
   }
 
   return record.value;
+}
+
+export type User = {
+  username: string;
+  password: string;
+};
+
+export function getUser(key: string): User {
+  const record = getRecord<{ username: string }>(
+    users,
+    key
+  );
+
+  return {
+    username: record.username,
+    password: env.saucePassword
+  };
 }
