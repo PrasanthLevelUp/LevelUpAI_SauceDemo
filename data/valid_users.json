@@ -1,0 +1,20 @@
+[
+  {
+    "key": "standard_user",
+    "value": {
+      "username": "standard_user"
+    }
+  },
+  {
+    "key": "problem_user",
+    "value": {
+      "username": "problem_user"
+    }
+  },
+  {
+    "key": "performance_glitch_user",
+    "value": {
+      "username": "performance_glitch_user"
+    }
+  }
+]

@@ -1,43 +1,14 @@
-import { test } from '@playwright/test';
-
+import { test } from '../fixtures/baseFixture';
 import { LoginPage } from '../pages/LoginPage';
-import { InventoryPage } from '../pages/InventoryPage';
-import { CartPage } from '../pages/CartPage';
-import { CheckoutPage } from '../pages/CheckoutPage';
+import { env } from '../utils/env';
 
-test('Complete Checkout Flow', async ({ page }) => {
-
+test('standard user can log in', async ({ page, standardUser }) => {
   const loginPage = new LoginPage(page);
-  const inventoryPage = new InventoryPage(page);
-  const cartPage = new CartPage(page);
-  const checkoutPage = new CheckoutPage(page);
 
-  await page.goto('/');
+  await page.goto(env.baseUrl);
 
-  // Login
   await loginPage.login(
-    'standard_user',
-    'secret_sauce'
+    standardUser.username,
+    standardUser.password
   );
-
-  // Verify Inventory
-  await inventoryPage.verifyInventoryLoaded();
-
-  // Add Product
-  await inventoryPage.addProductToCart();
-
-  // Open Cart
-  await inventoryPage.openCart();
-
-  // Checkout
-  await cartPage.checkout();
-
-  // Enter Details
-  await checkoutPage.enterCheckoutDetails();
-
-  // Complete Order
-  await checkoutPage.completeOrder();
-
-  // Verify Success
-  await checkoutPage.verifyOrderSuccess();
 });

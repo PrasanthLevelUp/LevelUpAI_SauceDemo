@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.60.0",
+    "@types/node": "^26.0.0",
     "typescript": "^5.9.3"
   },
   "main": "index.js",
@@ -25,5 +26,8 @@
     "url": "https://github.com/PrasanthLevelUp/LevelUpAI_SauceDemo/issues"
   },
   "homepage": "https://github.com/PrasanthLevelUp/LevelUpAI_SauceDemo#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
 }
