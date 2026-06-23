@@ -1,8 +1,7 @@
 import { Page, expect } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class CheckoutPage {
-
-  constructor(private page: Page) {}
+export class CheckoutPage extends BasePage{
 
   firstName = this.page.locator('[data-test="firstName"]');
   lastName = this.page.locator('[data-test="lastName"]');
@@ -13,11 +12,11 @@ export class CheckoutPage {
 
   successMessage = this.page.locator('.complete-header');
 
-  async enterCheckoutDetails() {
-    await this.firstName.fill('Prasanth');
-    await this.lastName.fill('K');
-    await this.postalCode.fill('600001');
-  }
+async enterCheckoutDetails(customer: any) {
+  await this.firstName.fill(customer.firstName);
+  await this.lastName.fill(customer.lastName);
+  await this.postalCode.fill(customer.postalCode);
+}
 
   async completeOrder() {
     await this.continueBtn.click();

@@ -1,8 +1,7 @@
 import { Page } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class LoginPage {
-
-  constructor(private page: Page) {}
+export class LoginPage extends BasePage {
 
   username = this.page.locator('#user-name');
   password = this.page.locator('#password');

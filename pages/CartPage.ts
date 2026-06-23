@@ -1,8 +1,7 @@
 import { Page } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class CartPage {
-
-  constructor(private page: Page) {}
+export class CartPage extends BasePage {
 
   checkoutBtn = this.page.locator('[data-test="checkout"]');
 

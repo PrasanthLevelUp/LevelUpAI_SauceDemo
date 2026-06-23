@@ -1,8 +1,7 @@
 import { Page, expect } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class InventoryPage {
-
-  constructor(private page: Page) {}
+export class InventoryPage extends BasePage {
 
   addBackpack = this.page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
   cartIcon = this.page.locator('.shopping_cart_link');
