@@ -28,6 +28,8 @@ test.describe('Verify shopping cart icon visibility after login', () => {
     const loginPage = new LoginPage(page);
 
     // Precondition: User is successfully logged in.
+    await page.goto('https://www.saucedemo.com');
+    await page.waitForLoadState('domcontentloaded');
     await loginPage.login(user.username ?? '', user.password ?? '');
     await expect(page).toHaveURL(/inventory\.html/);
 

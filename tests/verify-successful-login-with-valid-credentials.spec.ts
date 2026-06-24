@@ -32,6 +32,8 @@ test.describe('Verify successful login with valid credentials', () => {
     const loginPage = new LoginPage(page);
     const inventoryPage = new InventoryPage(page);
 
+    await page.goto('https://www.saucedemo.com');
+    await page.waitForLoadState('domcontentloaded');
     await loginPage.login(user.username ?? '', user.password ?? '');
 
 

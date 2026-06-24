@@ -27,6 +27,8 @@ test.describe('Verify login attempt with invalid username', () => {
     const loginPage = new LoginPage(page);
 
     const validUser = getRecord("valid_users");
+    await page.goto('https://www.saucedemo.com');
+    await page.waitForLoadState('domcontentloaded');
     await loginPage.login('invalid_user', validUser.password ?? '');
 
 

@@ -30,6 +30,8 @@ test.describe('Verify login attempt with locked user account', () => {
     // Reusing repo Page Object: LoginPage
     const loginPage = new LoginPage(page);
 
+    await page.goto('https://www.saucedemo.com');
+    await page.waitForLoadState('domcontentloaded');
     await loginPage.login(user.username ?? '', user.password ?? '');
 
 

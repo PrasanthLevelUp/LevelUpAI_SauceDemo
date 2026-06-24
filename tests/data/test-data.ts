@@ -66,6 +66,12 @@ export function getRecord(name: string, selector?: RecordSelector): DataRecord {
   else if ('tag' in selector) rec = ds.find(r => (r.tags ?? []).includes(selector.tag));
   else rec = ds.find(selector.where);
   if (!rec) throw new Error('No record in dataset "' + name + '" for selector ' + JSON.stringify(selector));
+  // Secrets (e.g. passwords) are kept out of the data file as a placeholder
+  // (null) and resolved at runtime from the environment. Fill the password
+  // from SAUCE_PASSWORD when the record carries no concrete value.
+  if (rec.password == null && process.env.SAUCE_PASSWORD) {
+    rec = { ...rec, password: process.env.SAUCE_PASSWORD };
+  }
   return rec;
 }
 

@@ -38,10 +38,14 @@ test.fixme('Verify concurrent login attempts with valid credentials (concurrent 
 
     // Session A — log in.
     const loginPageA = new LoginPage(pageA);
+    await pageA.goto('https://www.saucedemo.com');
+    await pageA.waitForLoadState('domcontentloaded');
     await loginPageA.login(user.username ?? '', user.password ?? '');
 
     // Session B — log in with the same credentials.
     const loginPageB = new LoginPage(pageB);
+    await pageB.goto('https://www.saucedemo.com');
+    await pageB.waitForLoadState('domcontentloaded');
     await loginPageB.login(user.username ?? '', user.password ?? '');
 
     // TODO: assert the application's documented concurrent-session behaviour,

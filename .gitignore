@@ -24,3 +24,5 @@ yarn-error.log*
 dist/
 build/
 coverage/
+# Generated Playwright JSON results (run artifact)
+test-results.json
