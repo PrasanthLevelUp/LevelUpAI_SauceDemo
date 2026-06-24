@@ -4,7 +4,7 @@ test-results/
 /blob-report/
 /playwright/.cache/
 
-.env
+# .env
 .env.local
 .env.*.local
 
