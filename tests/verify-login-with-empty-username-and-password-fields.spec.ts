@@ -24,6 +24,8 @@ test.describe('Verify login with empty username and password fields', () => {
     // Reusing repo Page Object: LoginPage
     const loginPage = new LoginPage(page);
 
+    await page.goto('https://www.saucedemo.com');
+    await page.waitForLoadState('domcontentloaded');
     await loginPage.login('', '');
     // Leave username field empty
 

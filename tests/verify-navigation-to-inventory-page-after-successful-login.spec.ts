@@ -31,6 +31,8 @@ test.describe('Verify navigation to Inventory page after successful login', () =
     const inventoryPage = new InventoryPage(page);
 
     // Precondition: User is successfully logged in.
+    await page.goto('https://www.saucedemo.com');
+    await page.waitForLoadState('domcontentloaded');
     await loginPage.login(user.username ?? '', user.password ?? '');
 
     // Verify that the URL is https://www.saucedemo.com/inventory.html
