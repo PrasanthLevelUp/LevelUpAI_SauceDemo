@@ -1,13 +1,13 @@
-name: Playwright Tests
+name: Verify Successful Login
 
 on:
   workflow_dispatch:
 
 jobs:
   test:
-    name: Run Playwright Tests
+    name: Run Verify Successful Login Spec
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -25,17 +25,17 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run Playwright tests
+      - name: Run verify-successful-login spec
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
-        run: npx playwright test
+        run: npx playwright test tests/verify-successful-login-with-valid-credentials.spec.ts
 
       - name: Upload HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
+          name: valid-login-report
           path: playwright-report/
           retention-days: 14
 
@@ -43,7 +43,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
+          name: valid-login-test-results
           path: |
             test-results/
             test-results.json
