@@ -30,13 +30,11 @@ const datasets: Record<string, DataRecord[]> = {
   "valid_users": [
     {
       "key": "standard_user",
-      "username": "standard_user",
-      "password": null
+      "username": "standard_user"
     },
     {
       "key": "locked_out_user",
-      "username": "locked_out_user",
-      "password": null
+      "username": "locked_out_user"
     }
   ]
 };

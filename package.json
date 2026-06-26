@@ -4,6 +4,12 @@
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:checkout": "playwright test tests/checkout.spec.ts",
+    "test:login": "playwright test --grep login",
+    "test:valid-login": "playwright test tests/verify-successful-login-with-valid-credentials.spec.ts",
+    "test:ci": "playwright test --reporter=html,json",
     "report": "playwright show-report"
   },
   "devDependencies": {
