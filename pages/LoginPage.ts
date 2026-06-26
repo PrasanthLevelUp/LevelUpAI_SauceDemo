@@ -3,7 +3,7 @@ import { BasePage } from './BasePage';
 
 export class LoginPage extends BasePage {
 
-  username = this.page.locator('#user-name');
+  username = this.page.locator('#username');
   password = this.page.locator('#password');
   loginBtn = this.page.locator('#login-button');
 
