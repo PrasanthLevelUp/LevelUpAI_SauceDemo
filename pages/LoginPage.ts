@@ -5,7 +5,8 @@ export class LoginPage extends BasePage {
 
   // 🤖 LevelUp AI Auto-Heal: rule_based (96% confidence)
   username = this.page.locator('[data-test="username"]');
-  password = this.page.locator('password');
+  // 🤖 LevelUp AI Auto-Heal: rule_based (96% confidence)
+  password = this.page.locator('[data-test="password"]');
   loginBtn = this.page.locator('#login-button');
 
   async login(user: string, pass: string) {
