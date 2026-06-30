@@ -3,7 +3,8 @@ import { BasePage } from './BasePage';
 
 export class LoginPage extends BasePage {
 
-  username = this.page.locator('[data-test="user_name"]');
+  // 🤖 LevelUp AI Auto-Heal: rule_based (96% confidence)
+  username = this.page.locator('[data-test="username"]');
   password = this.page.locator('[data-test="password"]');
   loginBtn = this.page.locator('#login-button');
 
