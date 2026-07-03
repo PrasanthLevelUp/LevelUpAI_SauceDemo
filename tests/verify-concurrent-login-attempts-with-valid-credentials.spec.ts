@@ -2,6 +2,8 @@ import { test, expect, chromium } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { getUser } from '../utils/testData';
 import { env } from '../utils/env';
+import { waits } from '../utils/waits';
+import { logger } from '../utils/logger';
 
 /**
  * Verify concurrent login attempts with valid credentials
@@ -19,17 +21,21 @@ test.fixme('Verify concurrent login attempts with valid credentials', async () =
   const pageB = await contextB.newPage();
 
   const loginPageA = new LoginPage(pageA);
+  logger.info('Context A: navigating to base URL');
   await pageA.goto(env.baseUrl);
-  await pageA.waitForLoadState('domcontentloaded');
+  await waits.forPageLoad(pageA);
   await loginPageA.login(user.username, user.password);
 
   const loginPageB = new LoginPage(pageB);
+  logger.info('Context B: navigating to base URL');
   await pageB.goto(env.baseUrl);
-  await pageB.waitForLoadState('domcontentloaded');
+  await waits.forPageLoad(pageB);
   await loginPageB.login(user.username, user.password);
 
+  logger.info('Asserting both contexts reach inventory page');
   await expect(pageA).toHaveURL(/inventory\.html/);
   await expect(pageB).toHaveURL(/inventory\.html/);
+  logger.info('Test passed: concurrent login verified');
 
   await contextA.close();
   await contextB.close();
